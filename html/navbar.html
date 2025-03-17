@@ -9,64 +9,32 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:block order-1 md:order-2">
                 <ul class="flex items-center space-x-1">
-                    <li class="relative group px-1">
-                        <a href="../index.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">الرئيسية
-                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                        </a>
-                    </li>
-                    <li class="relative group px-1">
-                        <a href="products.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">تبرع
-                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                        </a>
-                    </li>
-                    <li class="relative group px-1">
-                        <a href="contact.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">اتصل بنا
-                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                        </a>
-                    </li>
-                    <li class="relative group px-1">
-                      <a href="about.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">حول
-                          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                      </a>
-                  </li>
-                    <li class="relative group px-1">
-                      <a href="zakah.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">حاسبة الزكاة
-                          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                      </a>
-                  </li>
-                  <li class="relative group px-1">
-                      <a href="timeline.html" class="inline-block py-2 px-4 text-white hover:text-gold transition-colors">مواقيت الصلاة
-                          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                      </a>
-                  </li>
-                  <li class="relative group px-1">
-                      <a href="top-donors.html" class="inline-block py-2 px-4 text-white hover:text-gold font-medium">أبرز المساهمين
-                          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                      </a>
-                  </li>
-                  <li class="relative group px-1">
-                      <a href="Quran.html" class="inline-block py-2 px-4 text-white hover:text-gold font-medium">القرآن
-                          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                      </a>
-                  </li>
+                    <li><a href="../index.html" class="inline-block py-2 px-4 text-white hover:text-gold">الرئيسية</a></li>
+                    <li><a href="products.html" class="inline-block py-2 px-4 text-white hover:text-gold">تبرع</a></li>
+                    <li><a href="contact.html" class="inline-block py-2 px-4 text-white hover:text-gold">اتصل بنا</a></li>
+                    <li><a href="about.html" class="inline-block py-2 px-4 text-white hover:text-gold">حول</a></li>
+                    <li><a href="zakah.html" class="inline-block py-2 px-4 text-white hover:text-gold">حاسبة الزكاة</a></li>
+                    <li><a href="timeline.html" class="inline-block py-2 px-4 text-white hover:text-gold">مواقيت الصلاة</a></li>
+                    <li><a href="top-donars.html" class="inline-block py-2 px-4 text-white hover:text-gold">أبرز المساهمين</a></li>
+                    <li><a href="quran.html" class="inline-block py-2 px-4 text-white hover:text-gold">القرآن</a></li>
                 </ul>
             </div>
 
             <div class="order-1 md:order-3 flex items-center space-x-4">
-                <!-- Sign Up Button -->
-                <a href="login.html" id="signUpButton" class="bg-gold text-primary hover:bg-white hover:text-primary px-6 py-2 rounded-full transition-colors font-bold flex items-center">
+                <!-- Sign Up Button (hidden for logged in users) -->
+                <a href="login.html" id="signUpButton" class="bg-gold text-primary hover:bg-white hover:text-primary px-6 py-2 rounded-full transition-colors font-bold flex items-center hidden">
                     سجل معنا
                 </a>
 
-                <!-- Profile and Logout Section -->
-                <div id="profileContainer" class="hidden items-center space-x-4">
-                    <a href="profile.html" class="text-white hover:text-gold transition-colors flex items-center">
+                <!-- Profile and Logout Section (always visible) -->
+                <div id="profileContainer" class="flex items-center space-x-4">
+                    <a href="userProfile.html" class="text-white hover:text-gold transition-colors flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11V9A3 3 0 009 9v2m6 0H9" />
                         </svg>
                         <span class="ml-1">الملف الشخصي</span>
                     </a>
-                    <a href="#" id="logoutBtn" class="bg-gold text-primary hover:bg-white hover:text-primary px-4 py-2 rounded-full transition-colors font-bold flex items-center">
+                    <a href="login.html" id="logoutBtn" class="bg-gold text-primary hover:bg-white hover:text-primary px-4 py-2 rounded-full transition-colors font-bold flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M6 4H10V6H7V14H10V16H6V4ZM14 8C14.5523 8 15 8.44771 15 9V11C15 11.5523 14.5523 12 14 12H10V8H14Z" clip-rule="evenodd" />
                         </svg>
@@ -78,4 +46,4 @@
     </div>
 </header>
 
-<script src="/js/signedCheck.js"></script> <!-- Link to your JavaScript file -->
+<script src="/js/signedCheck.js"></script>
