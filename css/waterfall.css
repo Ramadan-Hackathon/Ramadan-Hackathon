@@ -1,0 +1,101 @@
+/* crescent moon waterfall */
+.moon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+.moon {
+    position: absolute;
+    width: 60px;
+    /* الحجم القمر */
+    height: 60px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" ');
+    background-size: cover;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    /* تأثير التوهج */
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="%23D4AF37" /%3E%3Ccircle cx="60" cy="40" r="35" /%3E%3C/svg%3E');
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    left: 15px;
+    top: 0;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    /* المسافة من أسفل الشاشة */
+    right: 20px;
+    /* المسافة من اليمين */
+    background-color: #25D366;
+    /* اللون الأخضر الخاص بـ WhatsApp */
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: none;
+    /* مخفي في البداية */
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #128C7E;
+    /* اللون الأخضر الغامق عند التمرير */
+}
+
+.scroll-to-top-btn i {
+    margin: 0;
+}
+
+.scroll-to-top-btn:focus {
+    outline: none;
+}
+
+.scroll-to-top-btn.show {
+    display: block;
+    /* يظهر الزر عند التمرير */
+}
