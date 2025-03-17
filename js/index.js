@@ -85,7 +85,7 @@ setTimeout(() => {
 // الحصول على الزر
 const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 
-// إظهار الزر عند التمرير
+
 window.addEventListener('scroll', function() {
     if (window.scrollY > 200) {
         scrollToTopBtn.classList.add('show'); // يظهر الزر بعد التمرير 200px
