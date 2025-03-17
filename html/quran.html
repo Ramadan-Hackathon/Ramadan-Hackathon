@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الريان - القرآن الكريم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Tajawal", sans-serif;
+      }
+      .quran-title {
+        font-family: "Amiri", serif;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E5631",
+              secondary: "#38755B",
+              light: "#F7F9F3",
+              accent: "#EAF0D7",
+              gold: "#D4AF37",
+              darkgold: "#B8860B",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-light text-gray-800">
+    <!-- New Navbar with logo image and right-side alignment -->
+    <header
+      class="bg-gradient-to-l from-primary to-secondary text-white shadow-lg"
+    >
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center py-3">
+          <!-- Logo -->
+          <a href="#" class="z-10 flex items-center group order-2 md:order-1">
+            <img
+              src="../assets/image/image1.png"
+              alt="الريان"
+              class="h-11 group-hover:scale-105 transition-transform"
+            />
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:block order-1 md:order-2">
+            <ul class="flex items-center space-x-1">
+              <li class="relative group px-1">
+                <a
+                  href="../index.html"
+                  class="inline-block py-2 px-4 text-white hover:text-gold transition-colors"
+                >
+                  الرئيسية
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </a>
+              </li>
+              <li class="relative group px-1">
+                <a
+                  href="about-us.html"
+                  class="inline-block py-2 px-4 text-white hover:text-gold transition-colors"
+                >
+                  حول
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </a>
+              </li>
+              <li class="relative group px-1">
+                <a
+                  href="Quran.html"
+                  class="inline-block py-2 px-4 text-gold font-medium"
+                >
+                  القرآن
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-gold"
+                  ></span>
+                </a>
+              </li>
+              <li class="relative group px-1">
+                <a
+                  href="volunteer.html"
+                  class="inline-block py-2 px-4 text-white hover:text-gold transition-colors"
+                >
+                  التطوع
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </a>
+              </li>
+              <li class="relative group px-1">
+                <a
+                  href="contact-us.html"
+                  class="inline-block py-2 px-4 text-white hover:text-gold transition-colors"
+                >
+                  اتصل بنا
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Registration / Profile / Logout Section -->
+          <div class="order-1 md:order-3 flex items-center space-x-4">
+            <!-- Sign-up Button (shown if NOT logged in) -->
+            <a
+              href="../index.html#Donation"
+              id="signUpButton"
+              class="bg-gold text-primary hover:bg-white hover:text-primary px-6 py-2 rounded-full transition-colors font-bold flex items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 ml-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              سجل معنا
+            </a>
+
+            <!-- Profile & Logout (shown if user IS logged in) -->
+            <div id="profileContainer" class="hidden items-center space-x-4">
+              <!-- Profile icon/link -->
+              <a
+                href="profile.html"
+                class="text-white hover:text-gold transition-colors flex items-center"
+              >
+                <!-- Example profile icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11V9A3 3 0 009 9v2m6 0H9"
+                  />
+                </svg>
+                <span class="ml-1">الملف الشخصي</span>
+              </a>
+
+              <!-- Logout button -->
+              <a
+                href="logout.html"
+                class="bg-gold text-primary hover:bg-white hover:text-primary px-4 py-2 rounded-full transition-colors font-bold flex items-center"
+              >
+                <!-- Example logout icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 4H10V6H7V14H10V16H6V4ZM14 8C14.5523 8 15 8.44771 15 9V11C15 11.5523 14.5523 12 14 12H10V8H14Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                تسجيل الخروج
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Toggle Button -->
+          <div class="md:hidden z-10 order-3">
+            <button
+              id="hamburger"
+              class="flex flex-col items-center justify-center w-10 h-10 rounded-full bg-gold bg-opacity-20 hover:bg-opacity-30 transition-colors"
+            >
+              <span class="block w-5 h-0.5 bg-white mb-1"></span>
+              <span class="block w-5 h-0.5 bg-white mb-1"></span>
+              <span class="block w-5 h-0.5 bg-white"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-primary bg-opacity-95 z-50 transform -translate-y-full transition-transform duration-300 md:hidden"
+      >
+        <div class="flex justify-end p-4">
+          <button
+            id="close-menu"
+            class="text-white hover:text-gold transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full">
+          <ul class="flex flex-col items-center space-y-6 -mt-16">
+            <li class="w-full text-center">
+              <a
+                href="../index.html"
+                class="text-xl text-white hover:text-gold transition-colors block py-2"
+                >الرئيسية</a
+              >
+            </li>
+            <li class="w-full text-center">
+              <a
+                href="about-us.html"
+                class="text-xl text-white hover:text-gold transition-colors block py-2"
+                >حول</a
+              >
+            </li>
+            <li class="w-full text-center">
+              <a
+                href="Quran.html"
+                class="text-xl text-gold font-medium block py-2"
+                >القرآن</a
+              >
+            </li>
+            <li class="w-full text-center">
+              <a
+                href="volunteer.html"
+                class="text-xl text-white hover:text-gold transition-colors block py-2"
+                >التطوع</a
+              >
+            </li>
+            <li class="w-full text-center">
+              <a
+                href="contact-us.html"
+                class="text-xl text-white hover:text-gold transition-colors block py-2"
+                >اتصل بنا</a
+              >
+            </li>
+            <li class="w-full text-center mt-8">
+              <a
+                href="../index.html#Donation"
+                class="inline-block text-xl bg-gold text-primary hover:bg-white hover:text-primary px-8 py-3 rounded-full transition-colors"
+              >
+                <span class="flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  سجل معنا
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section with Quran calligraphy background -->
+      <section
+        class="relative py-24 bg-gradient-to-b from-primary to-secondary overflow-hidden"
+      >
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <!-- Decorative Islamic geometric pattern overlay -->
+        <div
+          class="absolute inset-0 opacity-10"
+          style="
+            background-image: url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.15.0/simpleicons.svg');
+            background-size: 200px;
+            background-repeat: repeat;
+          "
+        ></div>
+        <div class="relative container mx-auto px-4 text-center text-white">
+          <h1 class="quran-title text-5xl md:text-6xl font-bold mb-4">
+            القرآن الكريم
+          </h1>
+          <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+          <p class="text-xl mb-12 max-w-2xl mx-auto">
+            اقرأ واستمع إلى القرآن الكريم مع الترجمات والتلاوات
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a
+              href="#read-section"
+              class="bg-gold text-primary hover:bg-darkgold px-8 py-4 rounded-md font-bold transition-colors transform hover:-translate-y-1 shadow-lg"
+              >اقرأ القرآن</a
+            >
+            <a
+              href="#listen-section"
+              class="bg-white bg-opacity-10 border-2 border-white text-white hover:bg-white hover:bg-opacity-20 px-8 py-4 rounded-md font-medium transition-all transform hover:-translate-y-1 shadow-lg"
+              >استمع للتلاوات</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Read Section with decorative elements -->
+      <section
+        id="read-section"
+        class="py-20 bg-light relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 left-0 w-64 h-64 bg-accent rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full translate-x-1/3 translate-y-1/3 opacity-40"
+        ></div>
+        <div class="container mx-auto px-4 relative">
+          <div class="text-center mb-16">
+            <h2 class="quran-title text-4xl font-bold mb-3 text-primary">
+              اقرأ القرآن الكريم
+            </h2>
+            <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-secondary text-lg">
+              قرآن ملون مع الترجمة وقواعد التجويد
+            </p>
+          </div>
+          <div
+            class="max-w-5xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.01] transition-transform"
+          >
+            <div class="bg-primary text-white py-3 px-4 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 text-gold"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+              <span>مصحف القرآن الكريم</span>
+            </div>
+            <iframe
+              src="https://archive.org/embed/Color-codedQuranInSouthAsianArabicScript"
+              class="w-full h-96 border-0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Listen Section with enhanced audio player frame -->
+      <section id="listen-section" class="py-20 bg-accent">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="quran-title text-4xl font-bold mb-3 text-primary">
+              استمع للتلاوات
+            </h2>
+            <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-secondary text-lg">تلاوة جميلة للشيخ جامع العصيمي</p>
+          </div>
+          <div
+            class="max-w-5xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-[1.01] transition-transform"
+          >
+            <div class="bg-primary text-white py-3 px-4 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-2 text-gold"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 01-.707-7.072m-2.121-2.12a9 9 0 010 12.728"
+                />
+              </svg>
+              <span>الاستماع للقرآن الكريم</span>
+            </div>
+            <iframe
+              src="https://www.tvquran.com/en/recitation/154/collection_embeddable"
+              class="w-full h-96 border-0"
+              allowtransparency="1"
+              scrolling="no"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section with card grid -->
+      <section class="py-20 bg-light relative">
+        <div
+          class="absolute top-0 right-0 w-72 h-72 bg-accent rounded-full translate-x-1/2 -translate-y-1/2 opacity-40"
+        ></div>
+        <div class="container mx-auto px-4 relative">
+          <div class="text-center mb-16">
+            <h2 class="quran-title text-4xl font-bold mb-3 text-primary">
+              مصادر إضافية
+            </h2>
+            <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-secondary text-lg">
+              عزز رحلتك القرآنية مع هذه الموارد المفيدة
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Tajweed Card -->
+            <div
+              class="bg-white rounded-lg shadow-xl p-8 text-center transition-all hover:shadow-2xl hover:-translate-y-2 group"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-primary group-hover:bg-gold transition-colors mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M6.94 14.036c-.233.624-.43 1.2-.606 1.783.96-.697 2.101-1.139 3.418-1.304 2.513-.314 4.746-1.973 5.876-4.058l-1.456-1.455 1.413-1.415 1-1.001c.43-.43.915-1.224 1.428-2.368-5.593.867-9.018 4.292-11.074 9.818zM17 9.001L18 10c-1 3-4 6-8 6.5-2.669.334-4.336 2.167-5.002 5.5H3C4 16 6 2 21 2c-1 2.997-1.998 4.996-2.997 5.997L17 9.001z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-primary">
+                قواعد التجويد
+              </h3>
+              <p class="text-gray-600 mb-6">
+                تعلم تلاوة القرآن الصحيحة مع أدلة التجويد المفصلة
+              </p>
+              <a
+                href="#"
+                class="inline-block text-gold font-medium hover:text-primary transition-colors group-hover:font-bold"
+              >
+                اعرف المزيد
+                <span
+                  class="inline-block transform group-hover:translate-x-1 transition-transform"
+                  >←</span
+                >
+              </a>
+            </div>
+            <!-- Tafsir Card -->
+            <div
+              class="bg-white rounded-lg shadow-xl p-8 text-center transition-all hover:shadow-2xl hover:-translate-y-2 group"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-primary group-hover:bg-gold transition-colors mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M12 3c5.392 0 9.878 3.88 10.819 9-.94 5.12-5.427 9-10.819 9-5.392 0-9.878-3.88-10.819-9C2.121 6.88 6.608 3 12 3zm0 16a9.005 9.005 0 0 0 8.777-7 9.005 9.005 0 0 0-17.554 0A9.005 9.005 0 0 0 12 19zm0-2.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-primary">
+                التفسير والترجمات
+              </h3>
+              <p class="text-gray-600 mb-6">
+                افهم المعاني العميقة مع شروحات تفصيلية للآيات
+              </p>
+              <a
+                href="#"
+                class="inline-block text-gold font-medium hover:text-primary transition-colors group-hover:font-bold"
+              >
+                استكشف
+                <span
+                  class="inline-block transform group-hover:translate-x-1 transition-transform"
+                  >←</span
+                >
+              </a>
+            </div>
+            <!-- Prayer Times Card -->
+            <div
+              class="bg-white rounded-lg shadow-xl p-8 text-center transition-all hover:shadow-2xl hover:-translate-y-2 group"
+            >
+              <div
+                class="w-16 h-16 flex items-center justify-center rounded-full bg-primary group-hover:bg-gold transition-colors mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="w-8 h-8 text-white"
+                  fill="currentColor"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path
+                    d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm3 8H4v8h16v-8zm-5-6H9v2H7V5H4v4h16V5h-3v2h-2V5zm-9 8h2v2H6v-2zm5 0h2v2h-2v-2zm5 0h2v2h-2v-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-primary">
+                مواقيت الصلاة
+              </h3>
+              <p class="text-gray-600 mb-6">
+                جدول الصلاة اليومي المحدث تلقائياً بناءً على موقعك
+              </p>
+              <a
+                href="#"
+                class="inline-block text-gold font-medium hover:text-primary transition-colors group-hover:font-bold"
+              >
+                تحقق من المواقيت
+                <span
+                  class="inline-block transform group-hover:translate-x-1 transition-transform"
+                  >←</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-10 text-white mt-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <div class="text-gold text-2xl ml-2">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h3 class="text-xl font-bold">يد الخير</h3>
+            </div>
+            <p class="text-accent text-sm">
+              منصة خيرية تهدف إلى مساعدة المحتاجين وتوفير الدعم المادي والمعنوي
+              لهم من خلال مبادرات متنوعة.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 border-r-2 border-gold pr-3">
+              روابط سريعة
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-gold transition-colors"
+                  >الرئيسية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-gold transition-colors"
+                  >من نحن</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-gold transition-colors"
+                  >المبادرات</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-gold transition-colors"
+                  >التبرع</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-gold transition-colors"
+                  >تواصل معنا</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 border-r-2 border-gold pr-3">
+              اتصل بنا
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt text-gold ml-2"></i>
+                <span class="text-accent"
+                  >الرياض، المملكة العربية السعودية</span
+                >
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone text-gold ml-2"></i>
+                <span class="text-accent">+966 12 345 6789</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-gold ml-2"></i>
+                <span class="text-accent">info@yadalkhayr.org</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 border-r-2 border-gold pr-3">
+              النشرة البريدية
+            </h3>
+            <p class="text-accent text-sm mb-4">
+              اشترك في نشرتنا البريدية للحصول على آخر أخبار مبادراتنا
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="بريدك الإلكتروني"
+                class="p-2 rounded-r-none rounded-lg flex-grow text-primary focus:outline-none"
+              />
+              <button
+                class="bg-gold hover:bg-darkgold text-white p-2 rounded-l-lg rounded-r-none"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="flex space-x-4 mt-4">
+              <a href="#" class="text-accent hover:text-gold text-xl"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="text-accent hover:text-gold text-xl"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-accent hover:text-gold text-xl"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-accent hover:text-gold text-xl"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-accent/30 mt-8 pt-6 text-center">
+          <p class="text-accent text-sm">
+            © 2025 يد الخير. جميع الحقوق محفوظة.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const closeMenu = document.getElementById("close-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("-translate-y-full");
+      });
+
+      closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("-translate-y-full");
+      });
+    </script>
+  </body>
+</html>
