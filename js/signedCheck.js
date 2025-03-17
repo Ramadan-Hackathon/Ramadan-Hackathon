@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check if a user is signed in
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(currentUser)
+    console.log(currentUser);
 
     if (currentUser) {
         // User is signed in

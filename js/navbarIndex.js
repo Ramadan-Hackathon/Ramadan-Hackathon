@@ -14,7 +14,7 @@ tailwind.config = {
     },
 };
 
-fetch('html/navbar.html')
+fetch('html/navbar-index.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
