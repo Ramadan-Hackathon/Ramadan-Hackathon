@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ملف المستخدم - يد الخير</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E5631",
+              secondary: "#38755B",
+              light: "#F7F9F3",
+              accent: "#EAF0D7",
+              gold: "#D4AF37",
+              darkgold: "#B8860B",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap");
+      body {
+        font-family: "Tajawal", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <!-- New Navbar with logo image and right-side alignment -->
+  <!---------------------------------------- شريط التنقل ---------------------------------------->
+  <div id="navbar-placeholder"></div>
+  <script src="../js/navbar.js"></script>
+  <!---------------------------------------- شريط التنقل ---------------------------------------->
+
+    <!-- User Profile Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Sidebar -->
+        <div class="md:w-1/4">
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-col items-center mb-6">
+              <img
+                src="../assets/image/userImage.jpeg"
+                alt="صورة المستخدم"
+                class="w-32 h-32 rounded-full border-4 border-accent mb-4"
+              />
+              <h2 class="text-xl font-bold text-primary">رمزي زامل</h2>
+              <p class="text-secondary">متبرع منذ 2023</p>
+            </div>
+            <div class="border-t border-accent pt-4">
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="block bg-primary text-white px-4 py-2 rounded font-medium hover:bg-secondary transition-colors"
+                  >
+                    <i class="fas fa-user ml-2"></i>
+                    الملف الشخصي
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-primary px-4 py-2 rounded font-medium hover:bg-accent transition-colors"
+                  >
+                    <i class="fas fa-donate ml-2"></i>
+                    تبرعاتي
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-primary px-4 py-2 rounded font-medium hover:bg-accent transition-colors"
+                  >
+                    <i class="fas fa-heart ml-2"></i>
+                    حملاتي المفضلة
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-primary px-4 py-2 rounded font-medium hover:bg-accent transition-colors"
+                  >
+                    <i class="fas fa-certificate ml-2"></i>
+                    شهادات الشكر
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-primary px-4 py-2 rounded font-medium hover:bg-accent transition-colors"
+                  >
+                    <i class="fas fa-cog ml-2"></i>
+                    إعدادات الحساب
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block text-red-600 px-4 py-2 rounded font-medium hover:bg-red-100 transition-colors"
+                  >
+                    <i class="fas fa-sign-out-alt ml-2"></i>
+                    تسجيل الخروج
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="font-bold text-primary text-lg mb-4 border-r-2 border-gold pr-3"
+            >
+              إحصائيات التبرع
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm text-primary font-medium"
+                    >إجمالي التبرعات</span
+                  >
+                  <span class="text-sm text-gold font-bold">7,500 د.أ</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm text-primary font-medium"
+                    >عدد الحملات</span
+                  >
+                  <span class="text-sm text-gold font-bold">12 حملة</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-sm text-primary font-medium"
+                    >شهادات الشكر</span
+                  >
+                  <span class="text-sm text-gold font-bold">5</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-accent">
+                <span class="text-primary font-medium">مستوى العطاء:</span>
+                <div class="flex items-center mt-2">
+                  <i class="fas fa-star text-gold"></i>
+                  <i class="fas fa-star text-gold"></i>
+                  <i class="fas fa-star text-gold"></i>
+                  <i class="fas fa-star-half-alt text-gold"></i>
+                  <i class="far fa-star text-gold"></i>
+                  <span class="mr-2 text-primary font-medium">ذهبي</span>
+                </div>
+                <div class="mt-2">
+                  <div class="w-full bg-accent rounded-full h-2.5">
+                    <div
+                      class="bg-gold h-2.5 rounded-full"
+                      style="width: 75%"
+                    ></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-primary mt-1">
+                    <span>750 نقطة أخرى للمستوى البلاتيني</span>
+                    <span>2250/3000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="md:w-3/4">
+          <!-- Profile Info Card -->
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3
+                class="text-xl font-bold text-primary border-r-4 border-gold pr-3"
+              >
+                المعلومات الشخصية
+              </h3>
+              <button class="text-primary hover:text-secondary">
+                <i class="fas fa-edit"></i>
+                تعديل
+              </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >الاسم الكامل</label
+                  >
+                  <p class="bg-light p-3 rounded">رمزي زامل</p>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >البريد الإلكتروني</label
+                  >
+                  <p class="bg-light p-3 rounded">ramzizamil@gmail.com</p>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >رقم الجوال</label
+                  >
+                  <p class="bg-light p-3 rounded">6981362 79 962+</p>
+                </div>
+              </div>
+              <div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >تاريخ الميلاد</label
+                  >
+                  <p class="bg-light p-3 rounded">14/02/2002</p>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >المدينة</label
+                  >
+                  <p class="bg-light p-3 rounded">عمان</p>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-primary font-medium mb-1"
+                    >الجنس</label
+                  >
+                  <p class="bg-light p-3 rounded">ذكر</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Donations -->
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3
+                class="text-xl font-bold text-primary border-r-4 border-gold pr-3"
+              >
+                آخر التبرعات
+              </h3>
+              <a href="#" class="text-primary hover:text-secondary font-medium">
+                عرض الكل <i class="fas fa-chevron-left mr-1"></i>
+              </a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-accent">
+                  <tr>
+                    <th class="py-3 px-4 text-right text-primary font-bold">
+                      رقم التبرع
+                    </th>
+                    <th class="py-3 px-4 text-right text-primary font-bold">
+                      التاريخ
+                    </th>
+                    <th class="py-3 px-4 text-right text-primary font-bold">
+                      الحملة
+                    </th>
+                    <th class="py-3 px-4 text-right text-primary font-bold">
+                      المبلغ
+                    </th>
+                    <th class="py-3 px-4 text-right text-primary font-bold">
+                      الحالة
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-accent">
+                  <tr class="hover:bg-light">
+                    <td class="py-3 px-4">#12345</td>
+                    <td class="py-3 px-4">10/03/2025</td>
+                    <td class="py-3 px-4">كفالة الأيتام</td>
+                    <td class="py-3 px-4 font-bold text-primary">500 د.أ</td>
+                    <td class="py-3 px-4">
+                      <span
+                        class="bg-green-100 text-green-800 text-sm py-1 px-2 rounded-full"
+                      >
+                        تم التبرع
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-light">
+                    <td class="py-3 px-4">#12290</td>
+                    <td class="py-3 px-4">25/02/2025</td>
+                    <td class="py-3 px-4">المساعدات الطبية</td>
+                    <td class="py-3 px-4 font-bold text-primary">1000 د.أ</td>
+                    <td class="py-3 px-4">
+                      <span
+                        class="bg-green-100 text-green-800 text-sm py-1 px-2 rounded-full"
+                      >
+                        تم التبرع
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-light">
+                    <td class="py-3 px-4">#12188</td>
+                    <td class="py-3 px-4">15/02/2025</td>
+                    <td class="py-3 px-4">إطعام المحتاجين</td>
+                    <td class="py-3 px-4 font-bold text-primary">300 د.أ</td>
+                    <td class="py-3 px-4">
+                      <span
+                        class="bg-green-100 text-green-800 text-sm py-1 px-2 rounded-full"
+                      >
+                        تم التبرع
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Impact Summary -->
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3
+              class="text-xl font-bold text-primary border-r-4 border-gold pr-3 mb-6"
+            >
+              أثر تبرعاتك
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-accent bg-opacity-50 p-4 rounded-lg text-center">
+                <div class="text-gold text-3xl mb-2">
+                  <i class="fas fa-utensils"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-primary mb-1">75</h4>
+                <p class="text-secondary font-medium">وجبة تم توفيرها</p>
+              </div>
+              <div class="bg-accent bg-opacity-50 p-4 rounded-lg text-center">
+                <div class="text-gold text-3xl mb-2">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-primary mb-1">3</h4>
+                <p class="text-secondary font-medium">طلاب تم دعمهم</p>
+              </div>
+              <div class="bg-accent bg-opacity-50 p-4 rounded-lg text-center">
+                <div class="text-gold text-3xl mb-2">
+                  <i class="fas fa-medkit"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-primary mb-1">12</h4>
+                <p class="text-secondary font-medium">مساعدة طبية</p>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <p class="text-primary">
+                بفضل تبرعاتك، تم تقديم المساعدة لـ <strong>90</strong> شخص محتاج
+              </p>
+            </div>
+          </div>
+
+          <!-- Recommended Campaigns -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-bold text-primary border-r-4 border-gold pr-3 mb-6"
+            >
+              حملات مقترحة لك
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Campaign 1 -->
+              <div class="border border-accent rounded-lg overflow-hidden">
+                <img
+                  src="../assets/image/helpingSchool.jpeg"
+                  alt="دعم التعليم"
+                  class="w-full h-40 object-cover"
+                />
+                <div class="p-4">
+                  <h3 class="text-lg font-bold text-primary mb-2">
+                    دعم التعليم
+                  </h3>
+                  <p class="text-secondary text-sm mb-4">
+                    مساعدة الطلاب المتفوقين من الأسر محدودة الدخل لإكمال دراستهم
+                    الجامعية.
+                  </p>
+                  <div class="mb-3">
+                    <div class="flex justify-between mb-1">
+                      <span class="text-xs text-primary font-medium"
+                        >45% من الهدف</span
+                      >
+                      <span class="text-xs text-gold"
+                        >90,000 / 200,000 د.أ</span
+                      >
+                    </div>
+                    <div class="w-full bg-accent rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 45%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="bg-primary hover:bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium flex-grow"
+                    >
+                      تبرع الآن
+                    </button>
+                    <button
+                      class="border border-primary text-primary hover:bg-accent px-2 py-1 rounded-full text-sm"
+                    >
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Campaign 2 -->
+              <div class="border border-accent rounded-lg overflow-hidden">
+                <img
+                  src="../assets/image/homeless.jpeg"
+                  alt="تأمين المأوى"
+                  class="w-full h-40 object-cover"
+                />
+                <div class="p-4">
+                  <h3 class="text-lg font-bold text-primary mb-2">
+                    تأمين المأوى
+                  </h3>
+                  <p class="text-secondary text-sm mb-4">
+                    توفير مساكن آمنة للأسر المتعففة وترميم المنازل المتضررة.
+                  </p>
+                  <div class="mb-3">
+                    <div class="flex justify-between mb-1">
+                      <span class="text-xs text-primary font-medium"
+                        >60% من الهدف</span
+                      >
+                      <span class="text-xs text-gold"
+                        >150,000 / 250,000 د.أ</span
+                      >
+                    </div>
+                    <div class="w-full bg-accent rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 60%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="flex space-x-2">
+                    <button
+                      class="bg-primary hover:bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium flex-grow"
+                    >
+                      تبرع الآن
+                    </button>
+                    <button
+                      class="border border-primary text-primary hover:bg-accent px-2 py-1 rounded-full text-sm"
+                    >
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!---------------------------------------- Footer ---------------------------------------->
+<div id="footer-placeholder"></div>
+<!---------------------------------------- Footer ---------------------------------------->
+
+    <!-- Edit Profile Modal -->
+    <div
+      id="editProfileModal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 hidden z-50"
+    >
+      <div
+        class="bg-white rounded-lg max-w-2xl w-full p-6 transform transition-all duration-300 scale-95"
+      >
+        <div
+          class="flex justify-between items-center border-b border-accent pb-3 mb-4"
+        >
+          <h3 class="text-xl font-bold text-primary">تعديل الملف الشخصي</h3>
+          <button
+            id="closeProfileModalBtn"
+            class="text-secondary hover:text-primary"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <form id="profileForm">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-primary font-medium mb-1"
+                >الاسم الكامل</label
+              >
+              <input
+                type="text"
+                value="رمزي زامل"
+                class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-primary font-medium mb-1"
+                >البريد الإلكتروني</label
+              >
+              <input
+                type="email"
+                value="ramzizamil@gmail.com"
+                class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-primary font-medium mb-1"
+                >رقم الجوال</label
+              >
+              <input
+                type="tel"
+                value="+962 7x xxx xxxx"
+                class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-primary font-medium mb-1"
+                >تاريخ الميلاد</label
+              >
+              <input
+                type="date"
+                value="2002-02-14"
+                class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-primary font-medium mb-1">المدينة</label>
+              <select
+                class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option>عمان</option>
+                <option>الزرقاء</option>
+                <option>جرش</option>
+                <option>اربد</option>
+                <option>العقبة</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-primary font-medium mb-1">الجنس</label>
+              <div class="flex mt-2">
+                <label class="inline-flex items-center ml-4">
+                  <input
+                    type="radio"
+                    name="gender"
+                    checked
+                    class="form-radio text-primary"
+                  />
+                  <span class="mr-2">ذكر</span>
+                </label>
+                <label class="inline-flex items-center ml-4">
+                  <input
+                    type="radio"
+                    name="gender"
+                    class="form-radio text-primary"
+                  />
+                  <span class="mr-2">أنثى</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-primary font-medium mb-1"
+              >نبذة شخصية</label
+            >
+            <textarea
+              class="w-full border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              rows="4"
+            >
+هذا نص نبذة شخصية عن المستخدم</textarea
+            >
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              id="cancelEditBtn"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mr-2 transition-colors"
+            >
+              إلغاء
+            </button>
+            <button
+              type="submit"
+              class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded transition-colors"
+            >
+              حفظ التغييرات
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS Script for Edit Profile Modal -->
+    <script>
+      // فتح وإغلاق نافذة تعديل الملف الشخصي
+      const editProfileModal = document.getElementById("editProfileModal");
+      const closeProfileModalBtn = document.getElementById(
+        "closeProfileModalBtn"
+      );
+      const cancelEditBtn = document.getElementById("cancelEditBtn");
+
+      // يتم فتح النافذة عند النقر على زر "تعديل" في بطاقة المعلومات الشخصية
+      const editProfileBtn = document.querySelector(
+        ".flex.justify-between.items-center.mb-6 button"
+      );
+      editProfileBtn.addEventListener("click", () => {
+        editProfileModal.classList.remove("hidden");
+      });
+
+      // إغلاق النافذة عند النقر على زر الإغلاق أو زر الإلغاء
+      closeProfileModalBtn.addEventListener("click", () => {
+        editProfileModal.classList.add("hidden");
+      });
+      cancelEditBtn.addEventListener("click", () => {
+        editProfileModal.classList.add("hidden");
+      });
+
+      // معالجة نموذج تعديل الملف الشخصي
+      document
+        .getElementById("profileForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // هنا يمكن إضافة منطق حفظ التغييرات
+          alert("تم حفظ التغييرات");
+          editProfileModal.classList.add("hidden");
+        });
+    </script>
+  </body>
+</html>

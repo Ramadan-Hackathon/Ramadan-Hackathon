@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اتصل بنا</title>
+    <!-- تحميل Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E5631',   /* اللون الأساسي */
+                        secondary: '#38755B', /* اللون الثانوي */
+                        light: '#F7F9F3',     /* اللون الفاتح */
+                        accent: '#EAF0D7',    /* لون التميّز */
+                        gold: '#D4AF37',      /* لون ذهبي */
+                        darkgold: '#B8860B',  /* لون ذهبي داكن */
+                    },
+                    boxShadow: {
+                        'custom': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .input-focus:focus {
+            border-color: #EAF0D7;
+            box-shadow: 0 0 0 2px rgba(234, 240, 215, 0.2);
+        }
+
+        /* تعريف الزخارف الإسلامية كخلفية */
+        .islamic-pattern {
+            background-color: #F7F9F3;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M60 60l30-15.98L60 28.04 30 44.02 60 60zm0 0l-30 15.98L60 91.96l30-15.98L60 60zm-30-15.98l30 15.98-30 15.98v-31.96zm60 0v31.96l-30-15.98 30-15.98zM29.03 88.9l-14.15-24.5 28.3.03-14.15 24.47zm61.94 0l14.15-24.5-28.3.03 14.15 24.47zM29.03 31.1l14.15-24.5 14.15 24.5h-28.3zm61.94 0h-28.3l14.15-24.5 14.15 24.5z' stroke='%231E5631' stroke-opacity='0.15' stroke-width='2'/%3E%3Cpath d='M60 76.67l22.5-12.5V39.17l-22.5-12.5-22.5 12.5v25l22.5 12.5zm0 0v25l-22.5-12.5v-25L60 76.67zm0 0l22.5-12.5v25L60 101.67v-25zm0-76.67l-22.5 12.5-22.5-12.5L37.5 0l22.5 12.5L82.5 0 105 12.5 82.5 25 60 12.5v-12.5zm0 102.5l22.5 12.5 22.5-12.5-22.5-12.5-22.5 12.5zm0 0l-22.5 12.5-22.5-12.5 22.5-12.5 22.5 12.5z' stroke='%23D4AF37' stroke-opacity='0.08' stroke-width='2'/%3E%3Cpath d='M105 52.08v15.84l-22.5 12.5-22.5-12.5v-15.84M15 52.08v15.84l22.5 12.5 22.5-12.5v-15.84' stroke='%231E5631' stroke-opacity='0.15' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            background-position: center;
+            position: relative;
+        }
+
+        /* طبقة تراكب للخلفية لإضافة التدرج اللوني */
+        .islamic-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(234, 240, 215, 0.7) 0%, rgba(247, 249, 243, 0.8) 100%);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!---------------------------------------- شريط التنقل ---------------------------------------->
+    <div id="navbar-placeholder"></div>
+    <script src="../js/navbar.js"></script>
+
+    <!---------------------------------------- شريط التنقل ---------------------------------------->
+
+    <section class="islamic-pattern min-h-screen py-10 px-4">
+        <div class="max-w-xl mx-auto">
+            <div class="bg-light rounded-2xl shadow-custom overflow-hidden">
+                <!-- Header Section -->
+                <div class="bg-primary py-8 px-6 relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-gold rounded-full opacity-20"></div>
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gold rounded-full opacity-20"></div>
+                    <div class="flex justify-center mb-4">
+                        <!-- أيقونة هلال بسيطة -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 100 100">
+                            <defs>
+                                <mask id="crescentMask">
+                                    <!-- الخلفية البيضاء تُظهر الأجزاء المرغوبة -->
+                                    <rect width="100" height="100" fill="white" />
+                                    <!-- الدائرة السوداء تُحجب جزءاً من الدائرة الأساسية -->
+                                    <circle cx="60" cy="40" r="35" fill="black" />
+                                </mask>
+                            </defs>
+                            <!-- الدائرة الأساسية التي يتم تطبيق القناع عليها -->
+                            <circle cx="50" cy="50" r="40" fill="#D4AF37" mask="url(#crescentMask)" />
+                        </svg>
+
+                    </div>
+                    <h1 class="text-3xl font-bold text-light text-center relative z-10">اتصل بنا</h1>
+                    <p class="text-light text-center mt-2 relative z-10">
+                        رمضان كريم - نحن سعداء بالرد على استفساراتك
+                    </p>
+                </div>
+
+                <!-- Form Section -->
+                <div class="p-8">
+                    <form id="contactForm">
+                        <div class="mb-6">
+                            <label for="name" class="block text-primary font-medium mb-2">الاسم الكامل</label>
+                            <div class="relative">
+                                <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل"
+                                    class="w-full border border-accent rounded-lg px-4 py-3 input-focus transition duration-300 bg-light hover:bg-white"
+                                    required>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 absolute left-3 top-3.5 text-primary" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="email" class="block text-primary font-medium mb-2">البريد الإلكتروني</label>
+                            <div class="relative">
+                                <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني"
+                                    class="w-full border border-accent rounded-lg px-4 py-3 input-focus transition duration-300 bg-light hover:bg-white"
+                                    required>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 absolute left-3 top-3.5 text-primary" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="phone" class="block text-primary font-medium mb-2">
+                                رقم الهاتف <span class="text-primary text-sm">(اختياري)</span>
+                            </label>
+                            <div class="relative">
+                                <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك"
+                                    class="w-full border border-accent rounded-lg px-4 py-3 input-focus transition duration-300 bg-light hover:bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 absolute left-3 top-3.5 text-primary" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-6">
+                            <label for="message" class="block text-primary font-medium mb-2">رسالتك</label>
+                            <textarea id="message" name="message" placeholder="أدخل رسالتك هنا..."
+                                class="w-full border border-accent rounded-lg px-4 py-3 input-focus transition duration-300 bg-light hover:bg-white h-32"
+                                required></textarea>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-accent rounded" required>
+                                <span class="mr-2 text-primary">أوافق على سياسة الخصوصية وشروط الاستخدام</span>
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-gold hover:bg-darkgold text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <span>إرسال الرسالة</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // كود معالجة وإرسال البيانات إلى الخادم
+            alert('تم إرسال الرسالة بنجاح');
+        });
+    </script>
+    <!---------------------------------------- Footer ---------------------------------------->
+<div id="footer-placeholder"></div>
+<!---------------------------------------- Footer ---------------------------------------->
+</body>
+
+</html>
