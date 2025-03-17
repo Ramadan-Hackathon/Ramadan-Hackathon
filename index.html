@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الإحسان</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Google Fonts - Cairo is great for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hero-carousel {
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background: #fff;
+            transform: scale(1.3);
+            transition: all 0.3s ease;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #1E5631, #38755B);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        .custom-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 2;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!---------------------------------------- شريط التنقل ---------------------------------------->
+    <nav class="bg-gradient-to-r from-[#38755B] to-[#38755B] text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold flex items-center">
+                <i class="fas fa-heart mr-2"></i>
+                <span>منصة الإحسان</span>
+            </div>
+            <div class="hidden md:flex space-x-8 space-x-reverse">
+                <a href="#" class="text-white hover:text-yellow-200 transition font-medium">الرئيسية</a>
+                <a href="#projects" class="text-white hover:text-yellow-200 transition font-medium">المشاريع</a>
+                <a href="#impact" class="text-white hover:text-yellow-200 transition font-medium">أثرنا</a>
+                <a href="#testimonials" class="text-white hover:text-yellow-200 transition font-medium">قصص النجاح</a>
+            </div>
+            <button
+                class="bg-[#F7F9F3] hover:bg-yellow-500 text-[#1E5631] px-6 py-2 rounded-full font-bold transition-all shadow-md hover:shadow-lg">تبرع
+                الآن</button>
+        </div>
+    </nav>
+    <!---------------------------------------- شريط التنقل ---------------------------------------->
+
+    <!---------------------------------------- سلايدر ---------------------------------------->
+    <div class="hero-carousel" id="hero-carousel">
+        <div class="carousel-item"
+            style="background-image: url('https://i.pinimg.com/736x/ca/da/db/cadadb25f9f16b5fe4304b0494e3ea22.jpg');">
+            <div class="dark-overlay"></div>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white animate-pulse-slow">مساندة السجناء</h1>
+                <p class="text-2xl text-white mb-10 max-w-2xl mx-auto">ساهم في إعادة الأمل لمن فقدوه، وكن سببًا في إعادة
+                    حياتهم</p>
+                <button
+                    class="bg-[#D4AF37] text-[#225470] text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:shadow-2xl">ساهم
+                    الآن
+                </button>
+            </div>
+        </div>
+
+        <div class="carousel-item"
+            style="background-image: url('https://i.pinimg.com/736x/64/d3/f8/64d3f8e028de02e05a5ef553223753e2.jpg');">
+            <div class="dark-overlay"></div>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white animate-pulse-slow">تفريج الديون</h1>
+                <p class="text-2xl text-white mb-10 max-w-2xl mx-auto">أسهم في تخفيف الهموم عن كاهل المدينين والمعسرين
+                </p>
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-[#225470] text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:shadow-2xl">ساهم
+                    الآن</button>
+            </div>
+        </div>
+
+        <div class="carousel-item"
+            style="background-image: url('https://ehsanbaner.s3.me-south-1.amazonaws.com/CAMPAIGN2web+copy.png');">
+            <div class="dark-overlay"></div>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white animate-pulse-slow">صناعة المستقبل</h1>
+                <p class="text-2xl text-white mb-10 max-w-2xl mx-auto">مساهمتك تصنع مستقبلًا أفضل لمن يحتاج المساعدة</p>
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-[#225470] text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:shadow-2xl">ساهم
+                    الآن</button>
+            </div>
+        </div>
+
+        <div class="carousel-item"
+            style="background-image: url('https://i.pinimg.com/736x/0f/af/91/0faf91e1e24b142622131198561ab21d.jpg');">
+            <div class="dark-overlay"></div>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white animate-pulse-slow">تخفيف المعاناة</h1>
+                <p class="text-2xl text-white mb-10 max-w-2xl mx-auto">كل عطاء يخفف معاناة ويرسم البسمة على الوجوه</p>
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-[#225470] text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:shadow-2xl">ساهم
+                    الآن</button>
+            </div>
+        </div>
+
+        <div class="carousel-item"
+            style="background-image: url('https://i.pinimg.com/736x/d6/80/49/d68049a8fbbe4da6311950869421ea31.jpg');">
+            <div class="dark-overlay"></div>
+            <div class="container mx-auto px-4 z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 text-white animate-pulse-slow">الإحسان المستدام</h1>
+                <p class="text-2xl text-white mb-10 max-w-2xl mx-auto">جهود متواصلة لدعم المحتاجين وتمكينهم</p>
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-[#225470] text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl hover:shadow-2xl">ساهم
+                    الآن</button>
+            </div>
+        </div>
+
+        <button
+            class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-14 h-14 rounded-full flex items-center justify-center focus:outline-none transition z-10"
+            onclick="prevSlide()">
+            <i class="fas fa-chevron-right text-xl"></i>
+        </button>
+
+        <button
+            class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-14 h-14 rounded-full flex items-center justify-center focus:outline-none transition z-10"
+            onclick="nextSlide()">
+            <i class="fas fa-chevron-left text-xl"></i>
+        </button>
+
+        <div class="carousel-indicators"></div>
+    </div>
+    <!---------------------------------------- سلايدر ---------------------------------------->
+
+
+    <!---------------------------------------- من نحن ---------------------------------------->
+    <div class="bg-gradient-to-b from-white to-gray-50 py-24">
+        <div class="container mx-auto text-center px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="relative mb-16">
+                    <span
+                        class="text-[#4F7942] font-bold text-xl bg-green-50 px-4 py-1 rounded-full inline-block mb-3">من
+                        نحن
+                    </span>
+                    <h2 class="text-5xl font-bold mb-6 text-gray-800 mt-2">رسالتنا السامية</h2>
+                    <div class="w-32 h-1 bg-yellow-400 mx-auto"></div>
+                    <div
+                        class="absolute -z-10 w-64 h-64 bg-yellow-100 rounded-full opacity-20 top-0 right-1/2 transform translate-x-1/2 translate-y-1/2">
+                    </div>
+                </div>
+
+                <p class="text-xl leading-relaxed text-gray-700 mb-10">
+                    نسعى لإنشاء منظومة تكافلية متكاملة، تربط المتبرعين بالمحتاجين بطريقة مباشرة وشفافة. نهدف إلى تعزيز
+                    مبادئ التراحم والإحسان في المجتمع، ونضمن وصول المساعدات لمستحقيها بكل أمانة ومسؤولية، ساعين لبناء
+                    مجتمع متماسك يسوده التعاون والمحبة.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[#4F7942]">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#4F7942]" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">التعاون</h3>
+                        <p class="text-gray-600">نعمل معاً لتحقيق أهدافنا المشتركة في خدمة المجتمع</p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-[#225470]">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#225470]" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">الشفافية</h3>
+                        <p class="text-gray-600">نلتزم بالوضوح والمصداقية في جميع تعاملاتنا</p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-yellow-400">
+                        <div class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">الإحسان</h3>
+                        <p class="text-gray-600">نسعى لتقديم الخير والمساعدة لكل محتاج</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center mt-12 gap-4">
+                    <a href="/html/about.html"
+                        class="bg-[#D4AF37] hover:bg-[#B8860B] text-white px-8 py-4 rounded-lg transition duration-300 shadow-md flex items-center justify-center">
+                        <span>تعرف علينا</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="bg-white border-2 border-[#1E5631] text-[#1E5631] hover:bg-gray-50 px-8 py-4 rounded-lg transition duration-300 shadow-md flex items-center justify-center">
+                        <span>أبرز المساهمون</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------- من نحن ---------------------------------------->
+
+    <!---------------------------------------- إحصاءات ---------------------------------------->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#1E5631]">أثر تبرعاتكم</h2>
+                <p class="text-[#38755B] mt-2">
+                    كل تبرع يساهم في صنع فرق حقيقي في حياة المحتاجين
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div
+                    class="bg-[#F7F9F3] rounded-lg p-6 text-center shadow-md transform transition-transform hover:scale-105">
+                    <div class="text-[#D4AF37] text-4xl mb-3">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-[#1E5631] mb-2">15,000+</h4>
+                    <p class="text-[#38755B]">مستفيد شهرياً</p>
+                </div>
+                <div
+                    class="bg-[#F7F9F3] rounded-lg p-6 text-center shadow-md transform transition-transform hover:scale-105">
+                    <div class="text-[#D4AF37] text-4xl mb-3">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-[#1E5631] mb-2">500+</h4>
+                    <p class="text-[#38755B]">أسرة تم توفير مسكن لها</p>
+                </div>
+                <div
+                    class="bg-[#F7F9F3] rounded-lg p-6 text-center shadow-md transform transition-transform hover:scale-105">
+                    <div class="text-[#D4AF37] text-4xl mb-3">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-[#1E5631] mb-2">2,000+</h4>
+                    <p class="text-[#38755B]">طالب مكفول</p>
+                </div>
+                <div
+                    class="bg-[#F7F9F3] rounded-lg p-6 text-center shadow-md transform transition-transform hover:scale-105">
+                    <div class="text-[#D4AF37] text-4xl mb-3">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-[#1E5631] mb-2">30+</h4>
+                    <p class="text-[#38755B]">مبادرة خيرية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!---------------------------------------- إحصاءات ---------------------------------------->
+
+   <!---------------------------------------- مشاريعنا ---------------------------------------->
+<div id="projects" class="py-24 bg-gradient-to-b from-[#F7F9F3] to-[#EAF0D7]">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-20">
+            <span class="text-[#4F7942] font-bold text-xl relative inline-block px-4 py-1 rounded-lg bg-[#EAF0D7]">مشاريعنا</span>
+            <h2 class="text-5xl font-bold mb-8 text-[#1E5631] mt-4">مجالات المساهمة</h2>
+            <div class="w-32 h-1 bg-[#D4AF37] mx-auto mb-8 rounded-full"></div>
+            <p class="text-xl text-[#38755B] max-w-3xl mx-auto leading-relaxed">اختر المجال الذي تريد المساهمة فيه وكن جزءًا من مشروع خيري مستدام</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- الكرت الأول -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/ca/da/db/cadadb25f9f16b5fe4304b0494e3ea22.jpg" alt="مساعدة السجناء" class="w-full h-72 object-cover">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-[#225470] px-6 py-2 rounded-bl-3xl text-sm font-bold shadow-md">الأكثر إلحاحًا</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-24"></div>
+                </div>
+                <div class="p-8 text-right relative">
+                    <h3 class="text-2xl font-bold mb-4 text-[#225470]">مساعدة السجناء</h3>
+                    <p class="text-[#38755B] mb-8 leading-relaxed">ساهم في إعادة تأهيل السجناء ودعمهم للاندماج في المجتمع مجددًا.</p>
+                    <button class="bg-[#D4AF37] hover:bg-[#B8860B] text-[#225470] px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mr-auto">
+                        <span>تبرع الآن</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- الكرث الثاني -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/ff/65/a9/ff65a955b40f9344e8efaa78517aec17.jpg" alt="مساعدة المرضى" class="w-full h-72 object-cover">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-[#225470] px-6 py-2 rounded-bl-3xl text-sm font-bold shadow-md">الأكثر إلحاحًا</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-24"></div>
+                </div>
+                <div class="p-8 text-right relative">
+                    <h3 class="text-2xl font-bold mb-4 text-[#225470]">مساعدة المرضى</h3>
+                    <p class="text-[#38755B] mb-8 leading-relaxed">دعم المرضى المحتاجين لتغطية تكاليف العلاج والمساعدة الطبية.</p>
+                    <button class="bg-[#D4AF37] hover:bg-[#B8860B] text-[#225470] px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mr-auto">
+                        <span>تبرع الآن</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- الكرت الثالث -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/d6/80/49/d68049a8fbbe4da6311950869421ea31.jpg" alt="دعم التعليم" class="w-full h-72 object-cover">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-[#225470] px-6 py-2 rounded-bl-3xl text-sm font-bold shadow-md">الأكثر إلحاحًا</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-24"></div>
+                </div>
+                <div class="p-8 text-right relative">
+                    <h3 class="text-2xl font-bold mb-4 text-[#225470]">دعم التعليم</h3>
+                    <p class="text-[#38755B] mb-8 leading-relaxed">مساعدة الطلاب الذين يعانون من صعوبات مالية لتغطية الرسوم الدراسية.</p>
+                    <button class="bg-[#D4AF37] hover:bg-[#B8860B] text-[#225470] px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mr-auto">
+                        <span>تبرع الآن</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- الكرت الرابع -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/0f/af/91/0faf91e1e24b142622131198561ab21d.jpg" alt="مساعدة الأسر المحتاجة" class="w-full h-72 object-cover">
+                    <div class="absolute top-0 right-0 bg-[#D4AF37] text-[#225470] px-6 py-2 rounded-bl-3xl text-sm font-bold shadow-md">الأكثر إلحاحًا</div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent h-24"></div>
+                </div>
+                <div class="p-8 text-right relative">
+                    <h3 class="text-2xl font-bold mb-4 text-[#225470]">مساعدة الأسر المحتاجة</h3>
+                    <p class="text-[#38755B] mb-8 leading-relaxed">دعم العائلات التي تعاني من أزمات مالية لتوفير الاحتياجات الأساسية.</p>
+                    <button class="bg-[#D4AF37] hover:bg-[#B8860B] text-[#225470] px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl flex items-center gap-2 mr-auto">
+                        <span>تبرع الآن</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------- مشاريعنا ---------------------------------------->
+
+
+<!---------------------------------------- المراجعات ---------------------------------------->
+<div id="testimonials" class="py-24 bg-gradient-to-br from-[#F7F9F3] via-white to-[#EAF0D7]">
+    <div class="container mx-auto text-center px-6">
+        <div class="mb-20">
+            <span class="text-[#4F7942] font-bold text-xl bg-[#EAF0D7] px-6 py-2 rounded-full inline-block mb-3 shadow-sm">آراء المتبرعين والمستفيدين</span>
+            <h2 class="text-5xl font-bold mb-8 text-[#1E5631] mt-4">قصص نجاح</h2>
+            <div class="w-32 h-1 bg-[#D4AF37] mx-auto mb-8 rounded-full shadow-sm"></div>
+            <p class="text-xl text-[#38755B] max-w-3xl mx-auto mb-20 leading-relaxed">قصص حية من المتبرعين والمستفيدين الذين كان لهم دور كبير في إحداث فرق إيجابي في حياة الآخرين</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- الكرت الأول -->
+            <div class="relative">
+                <div class="absolute -top-6 right-0 left-0 mx-auto w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-lg z-20">
+                    <span class="text-2sm font-bold text-[#EAF0D7]">مستفيد</span>
+                </div>
+                <div class="testimonial-card bg-white p-10 pt-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-[#D4AF37] text-right">
+                    <div class="mb-8">
+                        <div class="flex justify-end mb-4">
+                            <div class="flex">
+                                <span class="text-[#D4AF37] text-lg">★★★★★</span>
+                            </div>
+                        </div>
+                        <p class="text-[#38755B] text-lg mb-6 leading-relaxed">"كانت تجربتي مع المنصة رائعة، التبرع سهل ووصلت المساعدة لمن يحتاجها بسرعة. شكرًا لمنصة يد الخير!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الكرت الثاني -->
+            <div class="relative">
+                <div class="absolute -top-6 right-0 left-0 mx-auto w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-lg z-20">
+                    <span class="text-2sm font-bold text-[#EAF0D7]">متبرع</span>
+                </div>
+                <div class="testimonial-card bg-white p-10 pt-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-[#D4AF37] text-right">
+                    <div class="mb-8">
+                        <div class="flex justify-end mb-4">
+                            <div class="flex">
+                                <span class="text-[#D4AF37] text-lg">★★★★★</span>
+                            </div>
+                        </div>
+                        <p class="text-[#38755B] text-lg mb-6 leading-relaxed">"الحمد لله، تلقيت المساعدة في تسديد ديني بفضل تبرعات أهل الخير. شكراً لمنصة يد الخير!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الكرت الثالث -->
+            <div class="relative">
+                <div class="absolute -top-6 right-0 left-0 mx-auto w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-lg z-20">
+                    <span class="text-2sm font-bold text-[#EAF0D7]">متبرع</span>
+                </div>
+                <div class="testimonial-card bg-white p-10 pt-12 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-[#D4AF37] text-right">
+                    <div class="mb-8">
+                        <div class="flex justify-end mb-4">
+                            <div class="flex">
+                                <span class="text-[#D4AF37] text-lg">★★★★★</span>
+                            </div>
+                        </div>
+                        <p class="text-[#38755B] text-lg mb-6 leading-relaxed">"أشعر بالفخر لتقديمي المساعدة للعائلات المحتاجة. منصة الإحسان توفر أمانًا وشفافية عالية!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------- المراجعات ---------------------------------------->
+
+
+    <!-- Footer -->
+    <footer class="bg-[#225470] text-white py-8">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">&copy; 2025 منصة الإحسان. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/index.js">
+
+    </script>
+</body>
+
+</html>
