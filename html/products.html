@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الحالات - منصة التبرعات الخيرية</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .primary-color {
+            color: #1e8a6e;
+        }
+
+        .primary-bg {
+            background-color: #1e8a6e;
+        }
+
+        .primary-border {
+            border-color: #1e8a6e;
+        }
+
+        .secondary-color {
+            color: #3e4c59;
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .urgent-badge {
+            background-color: #FEE2E2;
+            color: #EF4444;
+        }
+
+        .new-badge {
+            background-color: #E0F2FE;
+            color: #0EA5E9;
+        }
+
+        .case-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .case-card .badge {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .case-card:hover .badge {
+            opacity: 1;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background-color: #166e4f;
+            /* Slightly darker shade */
+            transition: all 0.3s ease;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .filter-button:hover {
+            background-color: #166e4f;
+            /* Darker shade for hover */
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        button:focus,
+        .filter-button:focus {
+            outline: 2px solid #1e8a6e;
+            /* Green outline */
+            outline-offset: 2px;
+        }
+
+        #sort-select {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        #sort-select:hover {
+            background-color: #f3f4f6;
+            /* Lighter background */
+            border-color: #1e8a6e;
+        }
+
+        /* Waterfall Animation */
+        .waterfall-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .crescent,
+        .star {
+            position: absolute;
+            opacity: 0;
+            animation: fall linear infinite;
+        }
+
+        .crescent {
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: 5px 0 0 #1e8a6e;
+            transform: rotate(45deg);
+        }
+
+        .star {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 16px solid #1e8a6e;
+            transform: rotate(0deg);
+        }
+
+        .star:after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 16px solid #1e8a6e;
+            transform: rotate(72deg);
+        }
+
+        .star:before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 16px solid #1e8a6e;
+            transform: rotate(144deg);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Donation Goal Animation */
+        .donation-progress {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-progress .progress-fill {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .donation-progress .progress-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Testimonials Section */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Countdown Timer */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .countdown-item {
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #1e8a6e;
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            min-width: 60px;
+            display: inline-block;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Waterfall Animation Container -->
+    <div class="waterfall-container" id="waterfall-container"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+962785956180" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main Navigation -->
+  
+
+    <!-- Page Content -->
+    <main class="max-w-7xl mx-auto py-8 px-4 md:px-6 relative z-10">
+        <!-- Featured Campaign with Countdown -->
+        <div class="bg-white rounded-xl card-shadow p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold primary-color mb-4">حملة رمضان الخيرية</h2>
+                    <p class="text-gray-600 mb-4">ساهم في حملتنا الرمضانية لمساعدة الأسر المحتاجة خلال شهر الخير. كل
+                        تبرع يمكن أن يغير حياة عائلة بأكملها.</p>
+
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">يوم</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">ساعة</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">دقيقة</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">ثانية</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-500">تم جمع</span>
+                            <span class="text-sm text-gray-500">
+                                <span class="font-bold">75,000</span> من <span class="font-bold">100,000</span> دينار
+                                أردني
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 mb-4 donation-progress">
+                            <div class="primary-bg h-3 rounded-full progress-fill" style="width: 75%"></div>
+                            <div class="progress-shine"></div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="primary-bg text-white px-6 py-3 rounded-lg font-bold shadow-md hover:bg-opacity-90 transition-all transform hover:-translate-y-0.5 mt-4">
+                        ساهم في الحملة الآن
+                    </button>
+                </div>
+                <div class="md:w-1/3">
+                    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/bc8674180299517.Y3JvcCw5OTksNzgyLDAsMTA4.jpg" alt="حملة رمضان" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Title and Breadcrumbs -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold secondary-color mb-2">الحالات العاجلة</h1>
+            <div class="flex items-center text-sm text-gray-500">
+                <a href="#" class="hover:text-gray-700">الرئيسية</a>
+                <span class="mx-2">></span>
+                <span class="primary-color">الحالات العاجلة</span>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white rounded-xl card-shadow p-4 mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-4">
+                    <h2 class="font-bold secondary-color whitespace-nowrap">تصفية النتائج:</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            class="filter-button px-4 py-2 primary-bg rounded-lg text-white hover:bg-gray-200 transition-colorsclass="filter-button px-4 py-2 primary-bg rounded-lg text-white hover:bg-gray-200 transition-colors"
+                            data-filter="all">
+                            الكل
+                        </button>
+                        <button
+                            class="filter-button px-4 py-2 bg-gray-100  text-gray-700 rounded-lg hover:bg-opacity-90 transition-colors"
+                            data-filter="debt">
+                            سداد ديون
+                        </button>
+                        <button
+                            class="filter-button px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
+                            data-filter="medical">
+                            علاج طبي
+                        </button>
+                        <button
+                            class="filter-button px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
+                            data-filter="orphan">
+                            كفالة أيتام
+                        </button>
+                        <button
+                            class="filter-button px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
+                            data-filter="food">
+                            مساعدات غذائية
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-600 whitespace-nowrap">ترتيب حسب:</span>
+                    <select id="sort-select"
+                        class="bg-gray-100 border-0 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="date">الأحدث</option>
+                        <option value="oldest">الأقدم</option>
+                        <option value="urgent">الأكثر إلحاحاً</option>
+                        <option value="funded">الأقل تمويلاً</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cases Grid -->
+        <a href="/html/product-details.html"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="cases-grid">
+            <!-- Case Card 1 -->
+             
+            <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                data-category="debt" data-date="2023-02-20" data-urgent="true" data-funded="85">
+                <div class="relative">
+                    <img src="https://www.noonpost.com/wp-content/uploads/2019/05/1542555920-jpg.webp" alt="صورة الحالة"
+                        class="w-full h-48 object-cover">
+                    <div class="badge urgent-badge">عاجل</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg secondary-color mb-2">مساعدة سجين على سداد دين</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">عليه امر بالتنفيذ وحكم بالسجن عمره 43 عاما متزوج
+                        لديه 3 أطفال متبقي عليه مبلغ 728 دينار أردني</p>
+
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-gray-500">تم جمع</span>
+                        <span class="text-xs text-gray-500">
+                            <span class="font-bold">4,272</span> من <span class="font-bold">5000</span> دينار أردني
+                        </span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                        <div class="primary-bg h-2 rounded-full progress-fill" style="width: 85%"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-500">المتبقي</span>
+                            <p class="font-bold primary-color">728 دينار أردني</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                            <p class="font-bold primary-color text-left">85%</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div></a>
+
+            <!-- Case Card 2 -->
+            <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                data-category="debt" data-date="2023-03-15" data-urgent="false" data-funded="42">
+                <div class="relative">
+                    <img src="https://www.khaberni.com/upload/news/thumb/news_model/2025/03/67c9793bedf03.webp" alt="صورة الحالة" class="w-full h-48 object-cover">
+                    <div class="badge new-badge">جديد</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg secondary-color mb-2">سداد دين أرملة</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">أرملة تعول 4 أطفال وعليها دين بسبب علاج زوجها قبل
+                        وفاته وبحاجة للمساعدة العاجلة</p>
+
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-gray-500">تم جمع</span>
+                        <span class="text-xs text-gray-500">
+                            <span class="font-bold">14,250</span> من <span class="font-bold">35,000</span> دينار أردني
+                        </span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                        <div class="primary-bg h-2 rounded-full progress-fill" style="width: 42%"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-500">المتبقي</span>
+                            <p class="font-bold primary-color">20,750 دينار أردني</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                            <p class="font-bold primary-color text-left">42%</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Case Card 3 -->
+            <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                data-category="food" data-date="2023-03-05" data-urgent="true" data-funded="70">
+                <div class="relative">
+                    <img src="https://alboraqcharity.org/ar/storage/2021/03/albairaq-img3-5-300x194.jpg" alt="صورة الحالة"
+                        class="w-full h-48 object-cover">
+                    <div class="badge urgent-badge">عاجل</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg secondary-color mb-2">مساعدة عائلة متعففة</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">عائلة مكونة من 6 أفراد بحاجة إلى مساعدة عاجلة
+                        لسداد إيجار منزلهم المتأخر</p>
+
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-gray-500">تم جمع</span>
+                        <span class="text-xs text-gray-500">
+                            <span class="font-bold">8,500</span> من <span class="font-bold">12,000</span> دينار أردني
+                        </span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                        <div class="primary-bg h-2 rounded-full progress-fill" style="width: 70%"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-500">المتبقي</span>
+                            <p class="font-bold primary-color">3,500 دينار أردني</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                            <p class="font-bold primary-color text-left">70%</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Case Card 4 -->
+            <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                data-category="medical" data-date="2023-01-10" data-urgent="false" data-funded="90">
+                <div class="relative">
+                    <img src="https://admin.dotcarecms.com/storage/AEH/posts/May2024/8i6r7n0n8PVg8a3dbyaBLWeDrgnqTJK2UzHloH23.webp" alt="صورة الحالة" class="w-full h-48 object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg secondary-color mb-2">علاج طفل مريض</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">طفل يبلغ من العمر 9 سنوات يحتاج لعملية جراحية
+                        عاجلة لإنقاذ حياته</p>
+
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-gray-500">تم جمع</span>
+                        <span class="text-xs text-gray-500">
+                            <span class="font-bold">45,000</span> من <span class="font-bold">50,000</span> دينار أردني
+                        </span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                        <div class="primary-bg h-2 rounded-full progress-fill" style="width: 90%"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-500">المتبقي</span>
+                            <p class="font-bold primary-color">5,000 دينار أردني</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                            <p class="font-bold primary-color text-left">90%</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div>
+
+            <!-- New Case Card 5 (Orphan Support) -->
+            <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                data-category="orphan" data-date="2023-03-18" data-urgent="false" data-funded="35">
+                <div class="relative">
+                    <img src="https://iporh.org/ar/image/755x480/image_1537889837824859434.jpg" alt="صورة الحالة" class="w-full h-48 object-cover">
+                    <div class="badge new-badge">جديد</div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg secondary-color mb-2">كفالة أطفال أيتام</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">ثلاثة أطفال أيتام بحاجة إلى كفالة شهرية للتعليم والرعاية الصحية والغذاء</p>
+
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs text-gray-500">تم جمع</span>
+                        <span class="text-xs text-gray-500">
+                            <span class="font-bold">3,500</span> من <span class="font-bold">10,000</span> دينار أردني
+                        </span>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                        <div class="primary-bg h-2 rounded-full progress-fill" style="width: 35%"></div>
+                        <div class="progress-shine"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-500">المتبقي</span>
+                            <p class="font-bold primary-color">6,500 دينار أردني</p>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                            <p class="font-bold primary-color text-left">35%</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                        تبرع الآن
+                    </button>
+                </div>
+            </div>
+
+                    <!-- New Case Card 6 (Medical) -->
+                    <div class="bg-white rounded-xl card-shadow overflow-hidden hover:shadow-lg transition-shadow case-card"
+                        data-category="medical" data-date="2023-03-18" data-urgent="false" data-funded="55">
+                        <div class="relative">
+                            <img src="https://www.aljazeera.net/wp-content/uploads/2015/07/b5eff80e-5975-40a7-923f-12462742cbea.jpeg?resize=686%2C513&quality=80" alt="صورة الحالة" class="w-full h-48 object-cover">
+                            <div class="badge new-badge">جديد</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg secondary-color mb-2">علاج مريض بالسرطان</h3>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">مريض يعاني من سرطان الدم ويحتاج إلى العلاج الفوري لتلقي
+                                العلاج الكيمائي اللازم</p>
+                    
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-gray-500">تم جمع</span>
+                                <span class="text-xs text-gray-500">
+                                    <span class="font-bold">10,000</span> من <span class="font-bold">18,000</span> دينار أردني
+                                </span>
+                            </div>
+                    
+                            <div class="w-full bg-gray-200 rounded-full h-2 mb-4 donation-progress">
+                                <div class="primary-bg h-2 rounded-full progress-fill" style="width: 55%"></div>
+                                <div class="progress-shine"></div>
+                            </div>
+                    
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-xs text-gray-500">المتبقي</span>
+                                    <p class="font-bold primary-color">8,000 دينار أردني</p>
+                                </div>
+                                <div class="text-left">
+                                    <span class="text-xs text-gray-500">نسبة الإنجاز</span>
+                                    <p class="font-bold primary-color text-left">55%</p>
+                                </div>
+                            </div>
+                    
+                            <button class="w-full primary-bg text-white py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+                                تبرع الآن
+                            </button>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    
+                    </main>
+                    
+              
+                    
+                    <script>
+                        // Example of countdown timer
+                        const countdownTimer = () => {
+                            const targetDate = new Date("2025-04-01T00:00:00").getTime();
+                            const interval = setInterval(function () {
+                                const now = new Date().getTime();
+                                const distance = targetDate - now;
+
+                                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                document.getElementById("days").innerText = days;
+                                document.getElementById("hours").innerText = hours;
+                                document.getElementById("minutes").innerText = minutes;
+                                document.getElementById("seconds").innerText = seconds;
+
+                                if (distance < 0) {
+                                    clearInterval(interval);
+                                    document.getElementById("days").innerText = "00";
+                                    document.getElementById("hours").innerText = "00";
+                                    document.getElementById("minutes").innerText = "00";
+                                    document.getElementById("seconds").innerText = "00";
+                                }
+                            }, 1000);
+                        };
+                        countdownTimer();
+                    </script>
+                    </body>
+                    
+                    </html>

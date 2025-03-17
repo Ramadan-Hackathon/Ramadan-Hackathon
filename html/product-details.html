@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التبرعات الخيرية</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+        }
+
+        .primary-color {
+            color: #1e8a6e;
+        }
+
+        .primary-bg {
+            background-color: #1e8a6e;
+        }
+
+        .primary-border {
+            border-color: #1e8a6e;
+        }
+
+        .secondary-color {
+            color: #3e4c59;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .leaf {
+            position: absolute;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Navigation -->
+  
+
+    <!-- Page Content -->
+    <main class="max-w-7xl mx-auto py-8 px-4 md:px-6">
+        <!-- Page Title and Breadcrumbs -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold secondary-color mb-2">الحالات العاجلة</h1>
+            <div class="flex items-center text-sm text-gray-500">
+                <a href="#" class="hover:text-gray-700">الرئيسية</a>
+                <span class="mx-2">></span>
+                <a href="#" class="hover:text-gray-700">الحالات</a>
+                <span class="mx-2">></span>
+                <span class="primary-color">سداد دين</span>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Column - Featured Case -->
+            <div class="lg:w-2/3">
+                <div class="bg-white rounded-xl card-shadow p-6 mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+                                <i class="fas fa-exclamation-circle text-red-500 text-xl"></i>
+                            </div>
+                            <span class="mr-3 text-xl font-bold secondary-color">حالة عاجلة</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-share-alt primary-color"></i>
+                            </button>
+                            <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                                <i class="far fa-bookmark primary-color"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold secondary-color mb-4">مساعدة سجين على سداد دين</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="flex flex-col">
+                                <span class="text-gray-500 mb-1 text-sm">عمر المتعثر</span>
+                                <span class="font-bold secondary-color text-lg">43 عاماً</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-gray-500 mb-1 text-sm">الحالة الاجتماعية</span>
+                                <span class="font-bold secondary-color text-lg">متزوج - 3 أطفال</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-gray-500 mb-1 text-sm">نوع المساعدة</span>
+                                <span class="font-bold secondary-color text-lg">سداد دين</span>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            عليه امر بالتنفيذ وحكم بالسجن عمره 43 عاما متزوج لديه 3 أطفال متبقي عليه مبلغ 728 دينار
+                            أردني. هذه
+                            الحالة من الحالات الملحة التي تستلزم تدخلاً عاجلاً لمساعدة أسرة بأكملها والحفاظ على
+                            استقرارها.
+                        </p>
+
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold primary-color">93%</span>
+                                <span class="text-gray-600 text-sm">
+                                    تم جمع <span class="font-bold">9,936</span> من أصل <span
+                                        class="font-bold">10,640</span> دينار أردني
+                                </span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="primary-bg h-3 rounded-full" style="width: 93%"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-gray-500 text-sm">المبلغ المتبقي</span>
+                                <span class="text-2xl font-bold primary-color">728 دينار أردني</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-gray-500 ml-2">رقم الحالة:</span>
+                                <span class="font-bold secondary-color">1934324561</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-gray-50 rounded-xl border border-gray-100">
+                        <div class="flex flex-col md:flex-row gap-4 items-center">
+                            <div class="flex items-center justify-end text-gray-700 whitespace-nowrap">
+                                <span>مبلغ التبرع</span>
+                            </div>
+                            <div class="relative flex-grow">
+                                <input type="number" id="donationAmount"
+                                    class="w-full py-3 px-4 border border-gray-300 rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                    placeholder="0">
+                                <span class="absolute left-50 top-3 text-gray-500">دينار أردني</span>
+                            </div>
+                            <button id="donateButton"
+                                class="primary-bg text-white py-3 px-8 rounded-lg font-bold text-lg shadow-md hover:bg-opacity-90 transition-all transform hover:-translate-y-0.5 w-full md:w-auto">
+                                تبرع الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Similar Cases -->
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-xl card-shadow p-6 mb-8">
+                    <h3 class="text-xl font-bold secondary-color mb-4">حالات مشابهة</h3>
+
+                    <div class="space-y-6">
+                        <!-- Case Card 1 -->
+                         <a href="/html/products.html">
+                        <div class="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold secondary-color mb-2">سداد دين أرملة</h4>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">أرملة تعول 4 أطفال وعليها دين بسبب علاج
+                                زوجها قبل وفاته</p>
+
+                            <div class="mb-2">
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="primary-color font-bold">78%</span>
+                                    <span>تم جمع 8,200 من أصل 10,000 دينار أردني</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="primary-bg h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="https://www.khaberni.com/upload/news/thumb/news_model/2025/03/67c9793bedf03.webp" alt="User" class="h-8 w-8 rounded-full">
+                                    <span class="font-bold secondary-color ml-2">أم عبدالله</span>
+                                </div>
+                                <span class="font-bold primary-color">2,400 دينار أردني</span>
+                            </div>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
