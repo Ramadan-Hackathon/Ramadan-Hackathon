@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 loginMessage.classList.replace('text-red-600', 'text-green-600');
                 loginMessage.textContent = "تم تسجيل الدخول بنجاح! جاري التحويل...";
                 setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to dashboard
+                    window.location.href = '../index.html'; 
                 }, 1500);
             } else {
                 loginMessage.textContent = "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
