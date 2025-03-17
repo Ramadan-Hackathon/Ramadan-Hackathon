@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
             registrationMessage.classList.replace('text-red-600', 'text-green-600');
             registrationMessage.textContent = "تم التسجيل بنجاح! جاري التحويل...";
             setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1500);
+                window.location.href = '../index.html'; 
+                }, 1500);
         });
     }
 });
