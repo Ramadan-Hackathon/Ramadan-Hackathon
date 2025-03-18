@@ -11,6 +11,8 @@
     src="https://www.paypal.com/sdk/js?client-id=AQO_lrXGFsV-gcb9dl11jWIu-BW84qeQbOxa31FnSsbeJj_fpHAMK3sb-c2aJjJSnjuaN4CDAxvT3tL1&currency=USD"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
   <script>
     tailwind.config = {
       theme: {
@@ -219,7 +221,7 @@
                         <line x1="1" y1="10" x2="23" y2="10"></line>
                       </svg>
                     </div>
-                    <button id="cliqPayButton"
+                    <button id="alertButton"
                       class="w-full py-3 px-4 bg-primary text-white rounded-lg hover:bg-secondary transition-colors flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2">
@@ -248,7 +250,7 @@
     function setupRamadanProgress() {
       // Example: Assume Ramadan is 30 days and we're on day 15
       const totalDays = 30;
-      const currentDay = 15; // This can be dynamic, depending on the current date
+      const currentDay = 19; // This can be dynamic, depending on the current date
       const percentage = (currentDay / totalDays) * 100;
 
       document.getElementById('ramadanProgress').style.width = `${percentage}%`;
@@ -257,7 +259,7 @@
 
     // Handle the donation amount and update the PayPal button
     function handleDonationAmount() {
-      const donationAmount = document.getElementById('donationAmount').value || 1;
+      const donationAmount = document.getElementById('donationAmount').value || 100;
       document.getElementById('amountDisplay').textContent = `${donationAmount} دينار`;
 
       // Update PayPal and Cliq payment buttons with dynamic amount
@@ -294,9 +296,24 @@
     setupRamadanProgress();
     handleDonationAmount();
   </script>
+   <script>
+    document.getElementById('alertButton').addEventListener('click', function() {
+        Swal.fire({
+            title: 'شكراً لتبرعك',
+            text: 'تم الدفع بنجاح',
+            icon: 'success',
+            confirmButtonText: 'موافق'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'userProfile.html';
+            }
+        });
+    });
+</script>
   <!---------------------------------------- Footer ---------------------------------------->
 <div id="footer-placeholder"></div>
 <!---------------------------------------- Footer ---------------------------------------->
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
 
+</body>
 </html>

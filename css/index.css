@@ -142,3 +142,8 @@ body {
     transform: scale(1.1);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
+
+.carousel-item a button {
+    z-index: 9999;
+    position: relative;
+}

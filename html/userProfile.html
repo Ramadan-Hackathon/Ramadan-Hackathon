@@ -385,7 +385,7 @@
                     </div>
                   </div>
                   <div class="flex space-x-2">
-                    <button
+                    <button id="donateButton"
                       class="bg-primary hover:bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium flex-grow"
                     >
                       تبرع الآن
@@ -429,7 +429,7 @@
                     </div>
                   </div>
                   <div class="flex space-x-2">
-                    <button
+                    <button id="donateButton2"
                       class="bg-primary hover:bg-secondary text-white px-4 py-1 rounded-full text-sm font-medium flex-grow"
                     >
                       تبرع الآن
@@ -626,5 +626,16 @@
           editProfileModal.classList.add("hidden");
         });
     </script>
+    <script>
+      document.getElementById('donateButton').addEventListener('click', function() {
+          window.location.href = 'payment.html';
+      });
+      
+      document.getElementById('donateButton2').addEventListener('click', function() {
+          window.location.href = 'payment.html';
+      });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+
   </body>
 </html>
